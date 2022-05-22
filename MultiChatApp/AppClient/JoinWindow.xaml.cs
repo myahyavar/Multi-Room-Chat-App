@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,11 +19,30 @@ namespace AppClient
     /// <summary>
     /// MainWindow.xaml etkileşim mantığı
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class JoinWindow : Window
     {
-        public MainWindow()
+        
+        public JoinWindow()
         {
             InitializeComponent();
+        }
+
+        private void Connect_Click(object sender, RoutedEventArgs e)
+        {
+            btnConnect.Content = "Connecting...";
+            btnConnect.IsEnabled=false;
+            string ip = "127.0.0.1";
+            if (txtServer.Text != "")
+            {
+                ip = txtServer.Text;
+            }
+
+        }
+
+
+        private void Join_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
