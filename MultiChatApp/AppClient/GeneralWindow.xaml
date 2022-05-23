@@ -38,34 +38,21 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Button
-                        BorderThickness="0" 
-                        Height="40"
-                        Width="100"
-                        Grid.Column="0"
-                        HorizontalAlignment="Stretch"
-                        >
-                        <TextBlock Text="Add User"
-                                FontSize="18"
-                                />
-                    </Button>
+
                     <Button 
                         BorderThickness="0" 
                         Height="40"
-                        Width="100"
-                        Grid.Column="1"
-                        HorizontalAlignment="Stretch"
+                        Width="100" Margin="21,12,45,11"
                         >
                         <TextBlock Text="Join Group"
                                 FontSize="18"
                                 />
                     </Button>
                     <Button 
-                        Grid.Column="2"
+                        Grid.Column="1"
                         Height="40"
                         Width="120"
-                        HorizontalAlignment="Stretch"
-                        BorderThickness="0" 
+                        BorderThickness="0" Margin="23,13,23,10" 
                     >
                         <TextBlock Text="Create Group"
                             FontSize="18"
