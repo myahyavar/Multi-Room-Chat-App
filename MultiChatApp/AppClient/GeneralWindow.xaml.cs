@@ -23,6 +23,8 @@ namespace AppClient
         public GeneralWindow()
         {
             InitializeComponent();
+
         }
     }
 }
+

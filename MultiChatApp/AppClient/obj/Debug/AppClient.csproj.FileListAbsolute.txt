@@ -14,3 +14,5 @@ C:\Users\YAHYA\Desktop\Software Stuff\Computer Networking\Multi-Room-Chat-App\Mu
 C:\Users\YAHYA\Desktop\Software Stuff\Computer Networking\Multi-Room-Chat-App\MultiChatApp\AppClient\obj\Debug\AppClient.pdb
 C:\Users\YAHYA\Desktop\Software Stuff\Computer Networking\Multi-Room-Chat-App\MultiChatApp\AppClient\obj\Debug\JoinWindow.g.cs
 C:\Users\YAHYA\Desktop\Software Stuff\Computer Networking\Multi-Room-Chat-App\MultiChatApp\AppClient\obj\Debug\JoinWindow.baml
+C:\Users\YAHYA\Desktop\Software Stuff\Computer Networking\Multi-Room-Chat-App\MultiChatApp\AppClient\obj\Debug\GeneralWindow.g.cs
+C:\Users\YAHYA\Desktop\Software Stuff\Computer Networking\Multi-Room-Chat-App\MultiChatApp\AppClient\obj\Debug\GeneralWindow.baml

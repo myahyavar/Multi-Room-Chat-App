@@ -16,5 +16,6 @@
         <ListView x:Name="lvRooms" HorizontalAlignment="Left" Height="190" Margin="205,141,0,0" VerticalAlignment="Top" Width="125"/>
         <ListView x:Name="lblClients" HorizontalAlignment="Left" Height="190" Margin="22,141,0,0" VerticalAlignment="Top" Width="125"/>
         <TextBlock x:Name="txtClients" HorizontalAlignment="Left" Margin="22,112,0,0" TextWrapping="Wrap" Text="Connected Clients" VerticalAlignment="Top" Height="15" Width="115"/>
+        <TextBlock x:Name="txtCheck" HorizontalAlignment="Left" Margin="80,368,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Height="40" Width="204"/>
     </Grid>
 </Window>

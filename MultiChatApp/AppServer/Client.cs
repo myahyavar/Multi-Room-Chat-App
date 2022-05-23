@@ -10,19 +10,19 @@ namespace AppServer
     internal class Client
     {
         public int id = -1;
-        public string name = "";
+        public string nick = "";
         public TcpClient user_tcpclient;
 
         public Client(TcpClient tcpclient)
         {
-            name = "newclient";
+            nick = "newclient";
             user_tcpclient = tcpclient;
         }
 
         override
         public string ToString()
         {
-            return name;
+            return nick;
         }
     }
 }
