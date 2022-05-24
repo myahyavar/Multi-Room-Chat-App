@@ -20,9 +20,16 @@ namespace AppClient
     /// </summary>
     public partial class GeneralWindow : Window
     {
+        public string myNickName = null;
+        public Client myClient = null;
+
+        public JoinWindow joinWindow = null;
+
         public GeneralWindow()
         {
             InitializeComponent();
+            joinWindow = new JoinWindow();
+            joinWindow.ShowDialog();
 
         }
     }

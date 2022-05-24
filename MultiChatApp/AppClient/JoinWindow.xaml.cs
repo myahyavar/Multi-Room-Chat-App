@@ -21,7 +21,8 @@ namespace AppClient
     /// </summary>
     public partial class JoinWindow : Window
     {
-        
+        GeneralWindow myWindow = Application.Current.MainWindow as GeneralWindow;
+
         public JoinWindow()
         {
             InitializeComponent();
@@ -30,12 +31,18 @@ namespace AppClient
         private void Connect_Click(object sender, RoutedEventArgs e)
         {
             btnConnect.Content = "Connecting...";
-            btnConnect.IsEnabled=false;
+            //btnConnect.IsEnabled=false;
             string ip = "127.0.0.1";
             if (txtServer.Text != "")
             {
                 ip = txtServer.Text;
             }
+            myWindow.myClient = new Client(this);
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+                myWindow.myClient.Connect(ip);
+            }).Start();
 
         }
 
@@ -44,5 +51,7 @@ namespace AppClient
         {
 
         }
+
+
     }
 }
