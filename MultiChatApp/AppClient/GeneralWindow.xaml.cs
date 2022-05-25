@@ -21,9 +21,12 @@ namespace AppClient
     public partial class GeneralWindow : Window
     {
         public string myNickName = null;
+        public string myId = null;
         public Client myClient = null;
 
         public JoinWindow joinWindow = null;
+
+        public List<User> users = new List<User>();
 
         public GeneralWindow()
         {

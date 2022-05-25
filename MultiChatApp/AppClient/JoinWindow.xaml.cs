@@ -49,7 +49,15 @@ namespace AppClient
 
         private void Join_Click(object sender, RoutedEventArgs e)
         {
-
+            if (txtNickname.Text != "" )
+            {
+                myWindow.myClient.sendMessage("NewNick<" + txtNickname.Text + "<");
+                btnJoin.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("", "Please enter a nickname.", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
 

@@ -39,7 +39,8 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <Button 
+                    <Button
+                        x:Name="btnJoinGroup"
                         BorderThickness="0" 
                         Height="40"
                         Width="100" Margin="21,12,45,11"
@@ -48,7 +49,8 @@
                                 FontSize="18"
                                 />
                     </Button>
-                    <Button 
+                    <Button
+                        x:Name="btnCreateGroup"
                         Grid.Column="1"
                         Height="40"
                         Width="120"
@@ -66,13 +68,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <ScrollViewer VerticalScrollBarVisibility="Hidden">
-                <StackPanel x:Name="usersStack" 
-                        Grid.Column="0"
-                        Margin="5"
-                        >
-                </StackPanel>
+            <ScrollViewer  VerticalScrollBarVisibility="Hidden">
+                <ListView x:Name="lblClients" Height="600" Margin="0,0,0,0" Width="350"/>
             </ScrollViewer>
+            <TextBlock x:Name="txtId" HorizontalAlignment="Left" Margin="29,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" Height="16" Grid.Column="1" Visibility="Collapsed" />
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
@@ -143,7 +142,7 @@
                                   Direction="270"
                                   />
                         </Border.Effect>
-                        <TextBox x:Name="messageTextInput"
+                        <TextBox x:Name="txtMessage"
                                  BorderThickness="0"
                                  Background="Transparent"
                                  Padding="5"
@@ -157,6 +156,7 @@
                                  />
                     </Border>
                     <Button 
+                            x:Name="btnSend"
                             BorderThickness="0" 
                             Height="40"
                             Width="80"
