@@ -30,7 +30,7 @@ public class MainRoom extends javax.swing.JFrame {
             while (Client.socket.isConnected()) {
                 try {
 
-                    Thread.sleep(50);
+                    Thread.sleep(100);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(MainRoom.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -80,9 +80,9 @@ public class MainRoom extends javax.swing.JFrame {
         Room newRoom = new Room();
         newRoom.roomName = key;
         newRoom.lblRoomName.setText(key);
-        newRoom.username = txtUsername.getText();
+        newRoom.username = Username.getText();
         newRoom.updateFolk(users);
-        newRoom.updateChat(txtUsername.getText() + "  created a new room");
+        newRoom.updateChat(Username.getText() + "  created a new room");
         newRoom.setVisible(true);
         Rooms.add(newRoom);
 
@@ -93,7 +93,7 @@ public class MainRoom extends javax.swing.JFrame {
         ArrayList<String> elements = (ArrayList<String>) msg.content;
         Room newRoom = new Room();
         newRoom.roomName = elements.get(1);
-        newRoom.username = txtUsername.getText();
+        newRoom.username = Username.getText();
         newRoom.lblRoomName.setText(elements.get(1));
         newRoom.setVisible(true);
         Rooms.add(newRoom);
@@ -215,11 +215,10 @@ public class MainRoom extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
-        txtUsername = new javax.swing.JTextField();
+        Username = new javax.swing.JTextField();
         btnConnect = new javax.swing.JButton();
         pnl_gamer1 = new javax.swing.JPanel();
         btnSend = new javax.swing.JButton();
-        txtMessageGeneral = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         listUsers = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
@@ -232,6 +231,7 @@ public class MainRoom extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtGeneral = new javax.swing.JTextArea();
+        MessageGeneral = new javax.swing.JTextField();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -248,9 +248,7 @@ public class MainRoom extends javax.swing.JFrame {
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setFocusableWindowState(false);
         setMinimumSize(new java.awt.Dimension(560, 560));
-        setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -259,8 +257,8 @@ public class MainRoom extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtUsername.setText("Nick");
-        getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 140, -1));
+        Username.setText("Nick");
+        getContentPane().add(Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 140, -1));
 
         btnConnect.setText("Connect");
         btnConnect.addActionListener(new java.awt.event.ActionListener() {
@@ -285,14 +283,6 @@ public class MainRoom extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 60, 30));
-
-        txtMessageGeneral.setText("hi");
-        txtMessageGeneral.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMessageGeneralActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtMessageGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 300, 30));
 
         listUsers.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { ".", ".", ".", ".", ".", ".", ".", ".", "." };
@@ -351,6 +341,9 @@ public class MainRoom extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 370, 220));
 
+        MessageGeneral.setText("hi");
+        getContentPane().add(MessageGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 300, 30));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -360,7 +353,7 @@ public class MainRoom extends javax.swing.JFrame {
         Client.Start("127.0.0.1", 8888);
 
         btnConnect.setEnabled(false);
-        txtUsername.setEnabled(false);
+        Username.setEnabled(false);
         btnSend.setEnabled(true);
         btnDisconnect.setEnabled(true);
         btnEnter.setEnabled(true);
@@ -372,10 +365,10 @@ public class MainRoom extends javax.swing.JFrame {
     private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
 
         Message msg = new Message(Message.Message_Type.Text);
-        String x = txtUsername.getText() + ": " + txtMessageGeneral.getText();
+        String x = Username.getText() + ": " + MessageGeneral.getText();
         msg.content = x;
         Client.Send(msg);
-        txtMessageGeneral.setText("");
+        MessageGeneral.setText("hi");
 
     }//GEN-LAST:event_btnSendActionPerformed
 
@@ -383,7 +376,7 @@ public class MainRoom extends javax.swing.JFrame {
 
         if (Client.socket != null) {
             Message msg = new Message(Message.Message_Type.Disconnect);
-            String x = txtUsername.getText();
+            String x = Username.getText();
             msg.content = x;
             Client.Send(msg);
             Client.Terminate();
@@ -395,7 +388,7 @@ public class MainRoom extends javax.swing.JFrame {
 
         if (Rooms.size() == 0) {
             Message msg = new Message(Message.Message_Type.Disconnect);
-            String x = txtUsername.getText();
+            String x = Username.getText();
             msg.content = x;
             Client.Send(msg);
 
@@ -403,7 +396,7 @@ public class MainRoom extends javax.swing.JFrame {
             btnDisconnect.setEnabled(false);
             btnSend.setEnabled(false);
             btnConnect.setEnabled(true);
-            txtUsername.setEnabled(true);
+            Username.setEnabled(true);
             btnNewR.setEnabled(false);
             btnEnter.setEnabled(false);
         }
@@ -419,7 +412,7 @@ public class MainRoom extends javax.swing.JFrame {
             roomnames.add(roomListChoice.getItem(i));
         }
 
-        cr.username = txtUsername.getText();
+        cr.username = Username.getText();
         cr.rNames = roomnames;
         cr.setVisible(true);
 
@@ -432,16 +425,12 @@ public class MainRoom extends javax.swing.JFrame {
             if (!doRoomExists(roomListChoice.getSelectedItem())) {
                 String roomName = roomListChoice.getSelectedItem();
                 enter = new Room();
-                enter.username = txtUsername.getText();
+                enter.username = Username.getText();
                 enter.lblRoomName.setText(roomName);
                 enter.setVisible(true);
             }
         }
     }//GEN-LAST:event_btnEnterActionPerformed
-
-    private void txtMessageGeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMessageGeneralActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMessageGeneralActionPerformed
 
     /**
      * @param args the command line arguments
@@ -486,6 +475,8 @@ public class MainRoom extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField MessageGeneral;
+    public javax.swing.JTextField Username;
     public javax.swing.JButton btnConnect;
     private javax.swing.JButton btnDisconnect;
     private javax.swing.JButton btnEnter;
@@ -508,7 +499,5 @@ public class MainRoom extends javax.swing.JFrame {
     private javax.swing.JPanel pnl_gamer1;
     public java.awt.Choice roomListChoice;
     public javax.swing.JTextArea txtGeneral;
-    private javax.swing.JTextField txtMessageGeneral;
-    public javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

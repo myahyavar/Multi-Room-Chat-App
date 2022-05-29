@@ -29,7 +29,7 @@ public class Client {
             Client.listener.start();
 
             Message msg = new Message(Message.Message_Type.Name);
-            msg.content = MainRoom.MRoom.txtUsername.getText();
+            msg.content = MainRoom.MRoom.Username.getText();
             Client.Send(msg);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Socket Error.", "Error", JOptionPane.ERROR_MESSAGE);

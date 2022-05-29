@@ -55,7 +55,7 @@ class Listen extends Thread {
                         MainRoom.MRoom.delRoom(received);
                         break;
                     case Rename:
-                        MainRoom.MRoom.txtUsername.setText((String) received.content);
+                        MainRoom.MRoom.Username.setText((String) received.content);
                         break;
                     case File:
                         MainRoom.MRoom.getFile(received);
